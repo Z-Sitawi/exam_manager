@@ -26,6 +26,8 @@ Clone the project to your local machine using Git:
 ```bash
 git clone https://github.com/Z-Sitawi/exam_manager.git
 cd exam_manager
+composer install
+
 ```
 
 ## 2. Copy the `.env` file
