@@ -84,7 +84,7 @@ npm run dev
 php artisan serve
 ```
 
-Now, your application should be running locally!
+Now, your application should be running locally! => http://localhost:8000/
 
 ---
 
