@@ -1,66 +1,91 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<h1 align="center">Gestionnaire d'Examen</h1>
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+### Objectif :
+- Utilisation des migrations pour la création et la gestion des structures de tables.
+- Mise en place de seeders et de factories pour générer des données fictives dans la base
+de données.
+- Utilisation du Query Builder pour interroger la base de données de manière fluide et
+performante.
+- Implémentation de la pagination automatique et manuelle pour afficher efficacement les
+résultats sous forme de pages.
 
-## About Laravel
+### Les interfaces
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![image](https://github.com/user-attachments/assets/087d1223-7709-4942-a416-3187fb83610e)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+![image](https://github.com/user-attachments/assets/682b19fb-080d-430d-9af1-18e7a32f548a)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+![Screenshot from 2025-03-30 17-06-18](https://github.com/user-attachments/assets/0371308c-9540-4f12-a575-019b62e718bb)
 
-## Learning Laravel
+# Installation Instructions
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Follow these steps to set up the application locally.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## 1. Clone the repository
+Clone the project to your local machine using Git:
+```bash
+git clone https://github.com/Z-Sitawi/exam_manager.git
+cd exam_manager
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## 2. Copy the `.env` file
+Copy the `.env.example` to `.env`:
+```bash
+cp .env.example .env
+```
 
-## Laravel Sponsors
+## 3. Generate the application key
+Run the following command to generate the application key:
+```bash
+php artisan key:generate
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+## 4. Update `.env` file
+Open the `.env` file and update the database settings:
+```env
+DB_DATABASE=your_database_name
+DB_USERNAME=your_database_user
+DB_PASSWORD=your_database_password (optional)
+```
 
-### Premium Partners
+## 5. Clear and cache config (optional but recommended)
+It’s a good idea to clear the configuration cache and re-cache it to avoid issues:
+```bash
+php artisan config:clear
+php artisan cache:clear
+php artisan config:cache
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+## 6. Install npm dependencies
+Install the required JavaScript dependencies using npm:
+```bash
+npm install
+```
 
-## Contributing
+## 7. Run database migrations
+Run the migrations to set up the database schema:
+```bash
+php artisan migrate:fresh
+php artisan db:seed
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## 8. Run Vite and Laravel servers
+To run the application, open two terminal windows:
 
-## Code of Conduct
+- **Terminal 1**: Start the Vite development server
+```bash
+npm run dev
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- **Terminal 2**: Start the Laravel development server
+```bash
+php artisan serve
+```
 
-## Security Vulnerabilities
+Now, your application should be running locally!
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+---
 
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Troubleshooting
+- **Missing `.env` file**: If you don’t have a `.env` file, create one by copying `.env.example` and updating it with the correct settings.
+- **Database Connection Issues**: Ensure your database settings in `.env` are correct and that the database exists.
